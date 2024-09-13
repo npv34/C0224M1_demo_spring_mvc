@@ -21,11 +21,17 @@
     <tr>
         <td>#</td>
         <td>Name</td>
+        <td>Email</td>
+        <td>Avatar</td>
         <td></td>
     </tr>
     <tr th:each="user: ${listUser}">
         <td th:text="${user.id}"></td>
         <td th:text="${user.name}"></td>
+        <td th:text="${user.email}"></td>
+        <td>
+            <img th:src="${user.pathAvatar}" alt="">
+        </td>
         <td><a onclick="return confirm('Are you sure?')" th:href="@{/users/{id}/delete(id=${user.id})}">Delete</a></td>
     </tr>
 </table>

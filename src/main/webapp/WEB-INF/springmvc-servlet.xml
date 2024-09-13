@@ -35,5 +35,17 @@
 <!--        <property name="prefix" value="/WEB-INF/views/"/>-->
 <!--        <property name="suffix" value=".jsp"/>-->
 <!--    </bean>-->
+    <!-- Configure MultipartResolver -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- Maximum file size -->
+        <property name="maxUploadSize" value="5242880" /> <!-- 5MB -->
+        <!-- Maximum request size -->
+        <property name="maxUploadSizePerFile" value="5242880" /> <!-- 5MB -->
+    </bean>
+
+    <!-- cau hinh static file: css/js -->
+    <mvc:resources mapping="/css/**" location="/WEB-INF/static/css/"/>
+    <mvc:resources mapping="/js/**" location="/WEB-INF/static/js/"/>
 
 </beans>
